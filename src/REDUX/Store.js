@@ -1,10 +1,11 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 
-import pedidosRdx from './Ducks'
+import firebaseRdx from './Ducks'
 
 const rootRdx = combineReducers({
-    pedidos: pedidosRdx
+    fireStore: firebaseRdx
+
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

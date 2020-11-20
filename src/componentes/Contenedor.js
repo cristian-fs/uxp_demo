@@ -8,7 +8,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import Sidebar from './Sidebar';
 import Appbar from './AppBar';
-import Liquidaciones from './PAGELiquidaciones';
+import Facturas from './PAGEFacturas';
 import Pedidos from './PAGEPedidos'
 
 
@@ -100,7 +100,7 @@ const Contenedor = () => {
 
                             <Switch>
                                 <Route exact path="/" component={Pedidos} />
-                                <Route exact path="/Liquidaciones" component={Liquidaciones} />
+                                <Route exact path="/Facturas" component={Facturas} />
                             </Switch>
 
 

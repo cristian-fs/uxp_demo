@@ -1,11 +1,14 @@
 import React, { Component } from "react";
+import LogIn from "./LogIn";
 import fire from "../config/fire";
-import '../css/App.css';
+
+
 
 
 class Main extends Component {
     constructor(props) {
         super(props);
+       
         this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.signup = this.signup.bind(this);
@@ -14,12 +17,22 @@ class Main extends Component {
             password: ""
         }
     }
+
+    
+
+
     login(e) {
+        const { history } = this.props;
+        
         e.preventDefault();
         fire.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
             console.log(u)
+            history.push("/home");
         }).catch((err) => {
             console.log(err);
+
+            
+            
         })
     }
     signup(e) {
@@ -31,20 +44,42 @@ class Main extends Component {
         })
     }
     handleChange(e) {
+
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            
         })
+
+        
+
     }
     
-
-
+    
 
     
 
 render() {
+
+
+    
+
+// <LogIn handleChange={this.handleChange} handleSubmit={this.login} msg = "hola"/>
+
+
+
+
     return (
         <div>
-            <nav>
+           
+
+            
+            
+            
+            <LogIn handleChange={this.handleChange} handleSubmit={this.login}/>
+            
+            
+            
+            {/*<nav>
                 <div className="nav-wrapper black">
                     <img className="logostyle" src={require('../img/logo.png')} />
 
@@ -101,7 +136,7 @@ render() {
                         >Agree</a>
                     </div>
                 </div>
-            </nav>
+            </nav> */}
 
 
         </div>

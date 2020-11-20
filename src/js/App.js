@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import '../css/App.css';
+//import '../css/App.css';
 import fire from '../config/fire';
 import Main from '../componentes/Main';
 import Home from '../componentes/Home';
 import Contenedor from '../componentes/Contenedor';
+import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 
 
@@ -17,37 +18,45 @@ class App extends Component {
   }
 
 
-  componentDidMount() {
+ /* componentDidMount() {
     this.authListener();
-  }
+  }  */
 
 
-  authListener() {
+  /*authListener() {
     fire.auth().onAuthStateChanged((user) => {
       if (user) {
-        this.setState({ user })
+        
       }
       else {
-        this.setState({ user: null })
+        
       }
     })
-  }
+  }*/
 
 
 
 
 
 
-  /* {this.state.user ? (<Home/>) : (<Main/>)} */
+  
 
   render() {
 
     return (
       <>
-        {this.state.user ? (<Contenedor />) : (<Main/>)} 
+            <BrowserRouter>
+             <Switch>
+                <Route exact path="/" component={Main}/>
+               <Route exact path="/home" component={Contenedor}/>
+
+               </Switch>
+                  </BrowserRouter>
+
+        </>
         
         
-      </>
+      
     );
   }
 }

@@ -7,8 +7,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles(theme => ({
+
+   
+
     menuButton: {
         marginRight: theme.spacing(2),
         [theme.breakpoints.up('sm')]: {
@@ -16,7 +20,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
     title: {
-        flexGrow: 1                              //este no se esta usando...   va en el  texto titulo de appbar 
+        flexGrow: 1,                               
     },
     appBar: {
 
@@ -44,8 +48,8 @@ const Appbar = (props) => {
     }
 
 
-    return (
-
+    return (   
+           <div>
         <AppBar className={classes.appBar} position="fixed" >
             <Toolbar>
                 
@@ -58,10 +62,14 @@ const Appbar = (props) => {
                 >
                     <MenuIcon />
                 </IconButton>
-                 <Typography variant="h6" noWrap >URBANEXPRESS</Typography>
-                 <Button variant="contained" onClick={logout}>logout</Button>
+                 <Typography variant="h6" noWrap className={classes.title} >URBANEXPRESS</Typography>
+                 <IconButton color="inherit" aria-label="exit">
+                 <ExitToAppIcon onClick={logout}/>
+               
+                 </IconButton>
             </Toolbar>
         </AppBar>
+        </div>
     )
 }
 
