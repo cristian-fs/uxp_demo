@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import LogIn from "./LogIn";
 import fire from "../config/fire";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import MainTheme from '../config/TemaMain.js'
+import { ThemeProvider, makeStyles } from '@material-ui/core/styles'
 
 
 
@@ -70,13 +74,15 @@ render() {
 
     return (
         <div>
+            <CssBaseline />
+            <ThemeProvider theme={MainTheme}>
            
 
             
             
             
             <LogIn handleChange={this.handleChange} handleSubmit={this.login}/>
-            
+            </ThemeProvider>
             
             
             {/*<nav>

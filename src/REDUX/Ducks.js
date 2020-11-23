@@ -18,12 +18,112 @@ const OBTENER_PERFIL = "OBTENER_PERFIL";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////   ACCIONES
 
+
+
+export  const FirebaseAcx =  () => async (dispatch, getState) => {
+  try {
+   const IdUsuario = fire.auth().currentUser.uid;
+
+    const pdPath = fire.database().ref("MAINDATA/PEDIDOS");
+    const pdQry = pdPath.orderByChild("PD_CL_fid").equalTo(IdUsuario);
+    const fcPath = fire.database().ref("MAINDATA/FACTURAS2");
+    const fcQry = fcPath.orderByChild("FC_CL_fid").equalTo(IdUsuario);
+    
+    const pd_paq = [];
+    const fc_paq = [];
+    
+  
+
+
+
+
+    await pdQry.once("value", (snapshot) => {
+      console.log(snapshot);
+
+      snapshot.forEach((data) => {
+        pd_paq.push(data.val());
+
+        
+      });
+
+     console.log(pd_paq);
+
+      dispatch({
+        type: OBTENER_PEDIDOS,
+        payload: pd_paq,
+      });
+    });
+
+
+    await fcQry.once("value", (snapshot) => {
+      console.log(snapshot);
+
+      snapshot.forEach((data) => {
+        fc_paq.push(data.val());
+
+        
+      });
+
+     console.log(fc_paq);
+
+      dispatch({
+        type: OBTENER_FACTURAS,
+        payload: fc_paq,
+      });
+    });
+
+
+
+
+
+
+
+
+  } 
+
+  
+  
+  
+  
+  catch (error) {
+    console.log(error);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///  agregar async  aca abajo
 
-export const obtenerPedidosAcx = () => (dispatch, getState) => {
+export const obtenerPedidosAcx = (qryPath) => (dispatch, getState) => {
   try {
-    const IdUsuario = fire.auth().currentUser.uid;
-    const bd = fire.database().ref().child("MAINDATA/PEDIDOS");
+   const IdUsuario = fire.auth().currentUser.uid;
+    const bd = fire.database().ref(qryPath);
+    
     const pedref = bd.orderByChild("PD_CL_fid").equalTo(IdUsuario);
     const paq = [];
 
@@ -33,12 +133,10 @@ export const obtenerPedidosAcx = () => (dispatch, getState) => {
       snapshot.forEach((data) => {
         paq.push(data.val());
 
-        //  console.log(data.val())
-
-        //  console.log('LOG' + data.val().PD_fecha)
+        
       });
 
-      console.log(paq);
+     console.log(paq);
 
       dispatch({
         type: OBTENER_PEDIDOS,

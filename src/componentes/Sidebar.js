@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { obtenerPedidosAcx, obtenerFacturasAcx } from "../REDUX/Ducks";
+import { obtenerPedidosAcx, obtenerFacturasAcx, FirebaseAcx } from "../REDUX/Ducks";
 import { withRouter } from "react-router-dom";
 import {
   List,
@@ -9,6 +9,9 @@ import {
   ListItemText,
   Divider,
   Drawer,
+  Paper,
+  Grid,
+  Card,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AssignmentRoundedIcon from "@material-ui/icons/AssignmentRounded";
@@ -26,6 +29,14 @@ const estilos = makeStyles((theme) => ({
 
   drawerPaper: {
     width: drawerWidth,
+    elevation: 23,
+  },
+
+  logo: {
+    margin: theme.spacing(1),
+    height: "63%",
+    width: "63%",
+    marginLeft: "25px",
   },
 }));
 
@@ -37,15 +48,13 @@ const Sidebar = (props) => {
   const container =
     window !== undefined ? () => window().document.body : undefined; // nose que es esto
 
-  const usDpx = useDispatch();
+  const usDpx = useDispatch();   // se puede evitar esta var poniendo directo en HhandlePD
 
   function handlePD() {
-    usDpx(obtenerPedidosAcx());
+    usDpx(FirebaseAcx("MAINDATA/PEDIDOS"));
 
     history.push("/");
   }
-
-
 
   function handleFC() {
     usDpx(obtenerFacturasAcx());
@@ -54,8 +63,14 @@ const Sidebar = (props) => {
   }
 
   const drawerList = (
-    <div>
-      <div className={classes.toolbar} />
+    <>
+      <div className={classes.toolbar}>
+        <img
+          className={classes.logo}
+          src={require("../img/logo1.png")}
+          alt="logo"
+        ></img>
+      </div>
       <Divider />
       <List>
         <ListItem
@@ -64,28 +79,28 @@ const Sidebar = (props) => {
           onClick={() => history.push("/indicadores")}
         >
           <ListItemIcon>
-            <PollRoundedIcon />
+            <PollRoundedIcon color="secondary" />
           </ListItemIcon>
           <ListItemText primary={"Indicadores"} />
         </ListItem>
 
         <ListItem button key="Pedidos" onClick={handlePD}>
           <ListItemIcon>
-            <AssignmentRoundedIcon />
+            <AssignmentRoundedIcon color="secondary" />
           </ListItemIcon>
           <ListItemText primary={"Pedidos"} />
         </ListItem>
 
-        <ListItem button key="Liquidaciones">
+        <ListItem button key="Recibos">
           <ListItemIcon>
-            <CalendarTodayRoundedIcon />
+            <CalendarTodayRoundedIcon color="secondary" />
           </ListItemIcon>
-          <ListItemText primary={"Liquidaciones"} />
+          <ListItemText primary={"Recibos"} />
         </ListItem>
 
         <ListItem button key="Facturas" onClick={handleFC}>
           <ListItemIcon>
-            <BallotRoundedIcon />
+            <BallotRoundedIcon color="secondary" />
           </ListItemIcon>
           <ListItemText primary={"Facturas"} />
         </ListItem>
@@ -94,30 +109,38 @@ const Sidebar = (props) => {
       <List>
         <ListItem button key="Ayuda">
           <ListItemIcon>
-            <HelpRoundedIcon />
+            <HelpRoundedIcon color="secondary" />
           </ListItemIcon>
           <ListItemText primary={"Ayuda"} />
         </ListItem>
       </List>
-    </div>
+    </>
   );
 
   return (
-    <Drawer
-      container={container}
-      variant={props.variant}
-      anchor={theme.direction === "rtl" ? "right" : "left"} //porque aca no se mete directamente el valor rigth o left?   impuro?
-      open={props.open}
-      onClose={props.onClose ? props.onClose : null} //si hay "algo" que onClose = "algo", sino  nulo  (nada)  es por si no lo definimos cuando instanciamos no pasa nada
-      classes={{
-        paper: classes.drawerPaper,
-      }}
-      ModalProps={{
-        keepMounted: true, // Better open performance on mobile.
-      }}
-    >
-      {drawerList}
-    </Drawer>
+    <Grid component={Paper} elevation={22}>
+      <Grid item component={Paper} elevation={23}>
+        <Card elevation={23}>
+        <Drawer
+          component={Paper}
+          elevation={23}
+          container={container}
+          variant={props.variant}
+          anchor={theme.direction === "rtl" ? "right" : "left"} //porque aca no se mete directamente el valor rigth o left?   impuro?
+          open={props.open}
+          onClose={props.onClose ? props.onClose : null} //si hay "algo" que onClose = "algo", sino  nulo  (nada)  es por si no lo definimos cuando instanciamos no pasa nada
+          classes={{
+            paper: classes.drawerPaper,
+          }}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {drawerList}
+        </Drawer>
+        </Card>
+      </Grid>
+    </Grid>
   );
 };
 

@@ -5,11 +5,12 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import Hidden from '@material-ui/core/Hidden';
-import Typography from '@material-ui/core/Typography';
+//import Typography from '@material-ui/core/Typography';
 import Sidebar from './Sidebar';
 import Appbar from './AppBar';
 import Facturas from './PAGEFacturas';
 import Pedidos from './PAGEPedidos'
+import MainTheme from '../config/TemaMain.js'
 
 
 const drawerWidth = 240
@@ -60,7 +61,7 @@ const Contenedor = () => {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <ThemeProvider>
+            <ThemeProvider theme={MainTheme}>
                 <Provider store={mainStore} >
                     <Appbar desplegar={desplegar} />
                     <BrowserRouter>

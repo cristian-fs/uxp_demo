@@ -5,7 +5,6 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
-import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -20,11 +19,12 @@ const useStyles = makeStyles(theme => ({
         },
     },
     title: {
-        flexGrow: 1,                               
+        flexGrow: 1,  
+                                    
     },
     appBar: {
 
-        background: '#212121',
+        background: '#424242',
 
         [theme.breakpoints.up('sm')]: {
             width: `calc(100% - ${240}px)`,     //  aca va  DrawerWidth...  pero esta en otro componente
@@ -54,7 +54,7 @@ const Appbar = (props) => {
             <Toolbar>
                 
                 <IconButton
-                    color="inherit"
+                    color="primary"
                     aria-label="menu"                                                     // en la doc aca dice> aria-label="open drawer"
                     className={classes.menuButton}
                     //edge="start"
@@ -62,8 +62,8 @@ const Appbar = (props) => {
                 >
                     <MenuIcon />
                 </IconButton>
-                 <Typography variant="h6" noWrap className={classes.title} >URBANEXPRESS</Typography>
-                 <IconButton color="inherit" aria-label="exit">
+                 <Typography color="primary" variant="h6" noWrap className={classes.title} >PLATAFORMA CLIENTES</Typography>
+                 <IconButton color="primary" aria-label="exit">
                  <ExitToAppIcon onClick={logout}/>
                
                  </IconButton>
