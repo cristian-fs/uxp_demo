@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { obtenerPedidosAcx, obtenerFacturasAcx, FirebaseAcx } from "../REDUX/Ducks";
 import { withRouter } from "react-router-dom";
 import {
   List,
@@ -46,19 +44,13 @@ const Sidebar = (props) => {
   const theme = useTheme();
   const classes = estilos();
   const container =
-    window !== undefined ? () => window().document.body : undefined; // nose que es esto
-
-  const usDpx = useDispatch();   // se puede evitar esta var poniendo directo en HhandlePD
+    window !== undefined ? () => window().document.body : undefined; // nose que es estoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
   function handlePD() {
-    usDpx(FirebaseAcx("MAINDATA/PEDIDOS"));
-
     history.push("/");
   }
 
   function handleFC() {
-    usDpx(obtenerFacturasAcx());
-
     history.push("/facturas");
   }
 
@@ -121,23 +113,23 @@ const Sidebar = (props) => {
     <Grid component={Paper} elevation={22}>
       <Grid item component={Paper} elevation={23}>
         <Card elevation={23}>
-        <Drawer
-          component={Paper}
-          elevation={23}
-          container={container}
-          variant={props.variant}
-          anchor={theme.direction === "rtl" ? "right" : "left"} //porque aca no se mete directamente el valor rigth o left?   impuro?
-          open={props.open}
-          onClose={props.onClose ? props.onClose : null} //si hay "algo" que onClose = "algo", sino  nulo  (nada)  es por si no lo definimos cuando instanciamos no pasa nada
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {drawerList}
-        </Drawer>
+          <Drawer
+            component={Paper}
+            elevation={23}
+            container={container}
+            variant={props.variant}
+            anchor={theme.direction === "rtl" ? "right" : "left"} //porque aca no se mete directamente el valor rigth o left?   impuro?
+            open={props.open}
+            onClose={props.onClose ? props.onClose : null} //si hay "algo" que onClose = "algo", sino  nulo  (nada)  es por si no lo definimos cuando instanciamos no pasa nada
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawerList}
+          </Drawer>
         </Card>
       </Grid>
     </Grid>
