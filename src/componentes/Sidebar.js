@@ -47,7 +47,7 @@ const Sidebar = (props) => {
     window !== undefined ? () => window().document.body : undefined; // nose que es estoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
   function handlePD() {
-    history.push("/");
+    history.push("/pedidos");
   }
 
   function handleFC() {
@@ -65,10 +65,7 @@ const Sidebar = (props) => {
       </div>
       <Divider />
       <List>
-        <ListItem
-          button
-          key="Indicadores"
-          onClick={() => history.push("/indicadores")}
+        <ListItem button key="Indicadores" onClick={() => history.push("/home")}
         >
           <ListItemIcon>
             <PollRoundedIcon color="secondary" />

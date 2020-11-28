@@ -10,6 +10,7 @@ import Sidebar from "./Sidebar";
 import Appbar from "./AppBar";
 import Facturas from "./PAGEFacturas";
 import Pedidos from "./PAGEPedidos";
+import Indicadores from "./PAGEIndicadores";
 import MainTheme from "../config/TemaMain.js";
 
 const drawerWidth = 240;
@@ -78,8 +79,9 @@ const Contenedor = () => {
             <div className={classes.toolbar} />
 
             <Switch>
-              <Route exact path="/" component={Pedidos} />
-              <Route exact path="/Facturas" component={Facturas} />
+              <Route exact path="/pedidos" component={Pedidos} />
+              <Route exact path="/facturas" component={Facturas} />
+              <Route exact path="/home" component={Indicadores} />
             </Switch>
           </main>
         </BrowserRouter>
