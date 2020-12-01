@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DataGrid } from "@material-ui/data-grid";
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 //import { obtenerPedidosAcx } from '../redux/Ducks'
 import GridItem from "./Grid/GridItem.js";
 import GridContainer from "./Grid/GridContainer.js";
@@ -12,6 +12,8 @@ import CardHeader from "./Card/CardHeader.js";
 import CardFooter from "./Card/CardFooter.js";
 import CardBody from "./Card/CardBody.js";
 import Table from "./Table.js";
+import MainTheme from '../config/TemaMain.js'
+
 
 
 
@@ -34,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
       color: "#FFFFFF"
     }
   },
+  
   cardTitleWhite: {
     color: "#FFFFFF",
     marginTop: "0px",
@@ -57,27 +60,22 @@ const Pedidos = () => {
   const classes = useStyles();
   const pedidosQry = useSelector((store) => store.fireStore.pedidos);
 
-  const columnas = [
-    { field: "id", headerName: "N° DE PEDIDO", width: 150 },
-    { field: "PD_fecha", headerName: "FECHA", width: 130 },
-    { field: "PD_paq", headerName: "PAQUETES", width: 130 },
-    { field: "PD_zona", headerName: "ZONA", width: 130 },
-    { field: "PD_monto", headerName: "MONTO", width: 130 },
-  ];
+  const columnas = ["Name", "Country", "City", "Salary"];
 
   
 
   return (
+    <ThemeProvider theme={MainTheme}>
     <GridContainer>
     <GridItem xs={12} sm={12} md={12}>
         <Card>
-          <CardHeader color="primary">
+          <CardHeader color="rose">
             <h4 className={classes.cardTitleWhite}>PEDIDOS REALIZADOS</h4>
             <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
           </CardHeader>
           <CardBody>
             <Table
-              tableHeaderColor="primary"
+              tableHeaderColor="rose"
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={[
                 ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
@@ -94,7 +92,7 @@ const Pedidos = () => {
       
       
       </GridContainer>
-      
+      </ThemeProvider>
   );
 };
 

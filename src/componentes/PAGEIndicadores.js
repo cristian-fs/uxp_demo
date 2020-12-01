@@ -96,8 +96,8 @@ var delays2 = 80,
 <GridContainer>
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
+            <CardHeader color="primary" stats icon>
+              <CardIcon color="primary">
                 <Icon><AssignmentRoundedIcon/></Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Pedidos Pendientes</p>
@@ -181,17 +181,17 @@ var delays2 = 80,
               />
             </CardHeader>
             <CardBody>
-              <h4 className={classes.cardTitle}>Daily Sales</h4>
+              <h4 className={classes.cardTitle}>Pedidos Semanales</h4>
               <p className={classes.cardCategory}>
                 <span className={classes.successText}>
                    55%
                 </span>{" "}
-                increase in today sales.
+                incremento vs. semana anterior.
               </p>
             </CardBody>
             <CardFooter chart>
               <div className={classes.stats}>
-                 updated 4 minutes ago
+                 actualizado 4 minutes ago
               </div>
             </CardFooter>
           </Card>
@@ -211,17 +211,17 @@ var delays2 = 80,
               />
             </CardHeader>
             <CardBody>
-              <h4 className={classes.cardTitle}>Daily Sales</h4>
+              <h4 className={classes.cardTitle}>Distribución por Zona</h4>
               <p className={classes.cardCategory}>
                 <span className={classes.successText}>
-                   55%
+                   
                 </span>{" "}
-                increase in today sales.
+                 GBA NORTE - GBA SUR - GBA OESTE - CABA.
               </p>
             </CardBody>
             <CardFooter chart>
               <div className={classes.stats}>
-                 updated 4 minutes ago
+                 actualizado 4 minutes ago
               </div>
             </CardFooter>
           </Card>
