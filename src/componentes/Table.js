@@ -131,10 +131,14 @@ const useStyles = makeStyles(styles);
 
 export default function CustomTable(props) {
 
+
+  const classes = useStyles();
+  const { tableHead, tableHeaderColor, tableData } = props;   //tableData,
+  
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+  const emptyRows = rowsPerPage - Math.min(rowsPerPage, tableData.length - page * rowsPerPage);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -150,8 +154,7 @@ export default function CustomTable(props) {
 
 
 
-  const classes = useStyles();
-  const { tableHead, tableHeaderColor } = props;   //tableData,
+ 
 
 
 
@@ -181,21 +184,21 @@ export default function CustomTable(props) {
 
 <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
+            ? tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : tableData
           ).map((row) => (
             <TableRow className={classes.tableBodyRow}   >
               <TableCell className={classes.tableCell} style={{ width: 360 }} align="left">
-                {row.name}
+                {row.id}
               </TableCell>
               <TableCell className={classes.tableCell} align="left" >
-                {row.calories}
+                {row.PD_fecha}
               </TableCell>
               <TableCell className={classes.tableCell} align="left">
-                {row.fat}
+                {row.PD_zona}
               </TableCell>
               <TableCell className={classes.tableCell} align="left">
-                {row.fatt}
+                {row.PD_monto}
               </TableCell>
             </TableRow>
           ))}
@@ -211,7 +214,7 @@ export default function CustomTable(props) {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
               colSpan={4}
-              count={rows.length}
+              count={tableData.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
