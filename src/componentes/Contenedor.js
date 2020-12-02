@@ -45,13 +45,15 @@ const estilos = makeStyles((theme) => ({
 const Contenedor = () => {
   const usDpx = useDispatch();
   const classes = estilos();
+  const mes = "ENERO"
+  const ano = "2020"
   const [abrir, setAbrir] = useState(false);
   const desplegar = () => {
     setAbrir(!abrir);
   };
 
   useEffect(() => {
-    usDpx(FirebaseAcx());
+    usDpx(FirebaseAcx(mes, ano));
 
     console.log("se ejecuto accion");
   });

@@ -42,7 +42,7 @@ var delays2 = 80,
  const dailySalesChart = {
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
-    series: [[12, 17, 7, 17, 23, 18, 38],[20, 30, 45, 5, 20, 10, 18],[25, 35, 4, 12, 50, 1, 8]]
+    series: [[12, 17, 7, 17, 23, 18, 38],[20, 30, 35, 5, 20, 10, 18],[25, 35, 4, 12, 40, 1, 8]]
     
   },
   options: {
@@ -93,11 +93,11 @@ var delays2 = 80,
 
   return (
     <>
-<GridContainer>
+<GridContainer  justify="space-around">
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="primary" stats icon>
-              <CardIcon color="primary">
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
                 <Icon><AssignmentRoundedIcon/></Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Pedidos Pendientes</p>
@@ -120,8 +120,8 @@ var delays2 = 80,
 
         <GridItem xs={12} sm={6} md={3}>
           <Card>
-            <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
                 <Icon><AssignmentRoundedIcon/></Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Entregas Fallidas</p>
@@ -165,12 +165,36 @@ var delays2 = 80,
             </CardFooter>
           </Card>
         </GridItem>
+
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="info" stats icon>
+              <CardIcon color="info">
+                <Icon><AssignmentRoundedIcon/></Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Facturas</p>
+              <h2 className={classes.cardTitle}>
+               $6500
+              </h2>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <Danger>
+                  <Warning />
+                </Danger>
+                <a >
+                  Cierre 23/11
+                </a>
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
       </GridContainer>
 
-      <GridContainer>
+      <GridContainer  justify="space-evenly">
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader color="info">
+            <CardHeader color="warning">
               <ChartistGraph
                  className="ct-chart"
                  data={dailySalesChart.data}
@@ -197,6 +221,35 @@ var delays2 = 80,
           </Card>
         </GridItem>
 
+
+        <GridItem xs={12} sm={12} md={4}>
+          <Card chart>
+            <CardHeader color="rose">
+              <ChartistGraph
+                 className="ct-chart"
+                 data={dailySalesChart.data}
+                 type="Bar"
+                 options={dailySalesChart.options}
+                 listener={dailySalesChart.animation}
+                
+              />
+            </CardHeader>
+            <CardBody>
+              <h4 className={classes.cardTitle}>Distribución por Zona</h4>
+              <p className={classes.cardCategory}>
+                <span className={classes.successText}>
+                   
+                </span>{" "}
+                 GBA NORTE - GBA SUR - GBA OESTE - CABA.
+              </p>
+            </CardBody>
+            <CardFooter chart>
+              <div className={classes.stats}>
+                 actualizado 4 minutes ago
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
 
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>

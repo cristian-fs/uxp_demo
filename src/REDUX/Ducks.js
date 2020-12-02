@@ -32,11 +32,11 @@ const OBTENER_PERFIL = "OBTENER_PERFIL";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////   ACCIONES
 
-export const FirebaseAcx = () => async (dispatch, getState) => {
+export const FirebaseAcx = (mes,ano) => async (dispatch, getState) => {
   try {
     const IdUsuario = fire.auth().currentUser.uid;
 
-    const pdPath = fire.database().ref("MAINDATA/PEDIDOS/2020/ABRIL");
+    const pdPath = fire.database().ref("MAINDATA/PEDIDOS/"+ ano + "/" + mes);
     const pdQry = pdPath.orderByChild("PD_CL_fid").equalTo(IdUsuario);
     const fcPath = fire.database().ref("MAINDATA/FACTURAS2");
     const fcQry = fcPath.orderByChild("FC_CL_fid").equalTo(IdUsuario);
