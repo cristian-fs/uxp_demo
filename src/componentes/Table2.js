@@ -159,21 +159,11 @@ export default function CustomTable(props) {
                 {row.id}
               </TableCell>
               <TableCell className={classes.tableCell} align="left" >
-                {row.PD_fecha}
+                {row.RC_fecha}
               </TableCell>
               <TableCell className={classes.tableCell} align="left">
-                {row.PD_zona}
+                {row.RC_monto}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
-                {row.PD_monto}
-              </TableCell>
-              <TableCell className={classes.tableCell} align="left">
-                {row.PD_paq}
-              </TableCell>
-              <TableCell className={classes.tableCell} align="left">
-                {row.PD_estado_op}
-              </TableCell>
-
             </TableRow>
           ))}
 

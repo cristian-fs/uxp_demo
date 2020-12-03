@@ -54,6 +54,10 @@ const Sidebar = (props) => {
     history.push("/facturas");
   }
 
+  function handleRC() {
+    history.push("/recibos");
+  }
+
   const drawerList = (
     <>
       <div className={classes.toolbar}>
@@ -80,7 +84,7 @@ const Sidebar = (props) => {
           <ListItemText primary={"Pedidos"} />
         </ListItem>
 
-        <ListItem button key="Recibos">
+        <ListItem button key="Recibos" onClick={handleRC}>
           <ListItemIcon>
             <CalendarTodayRoundedIcon color="secondary" />
           </ListItemIcon>

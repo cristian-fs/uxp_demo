@@ -4,6 +4,7 @@ const Zstate = {
   pedidos: [],
   facturas: [],
   clientes: [],
+  recibos:[],
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////  REDUCERS
@@ -19,6 +20,12 @@ export default function firebaseRdx(state = Zstate, action) {
     case OBTENER_PERFIL:
       return { ...state, clientes: action.payload };
 
+      case OBTENER_RECIBOS:
+      return { ...state, recibos: action.payload };
+
+      case OBTENER_INDICADORES:
+      return { ...state, indicadores: action.payload };
+
     default:
       return state;
   }
@@ -29,6 +36,8 @@ export default function firebaseRdx(state = Zstate, action) {
 const OBTENER_PEDIDOS = "OBTENER_PEDIDOS";
 const OBTENER_FACTURAS = "OBTENER_FACTURAS";
 const OBTENER_PERFIL = "OBTENER_PERFIL";
+const OBTENER_RECIBOS = "OBTENER_RECIBOS";
+const OBTENER_INDICADORES = "OBTENER_INDICADORES";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////   ACCIONES
 
@@ -38,19 +47,34 @@ export const FirebaseAcx = (mes,ano) => async (dispatch, getState) => {
 
     const pdPath = fire.database().ref("MAINDATA/PEDIDOS/"+ ano + "/" + mes);
     const pdQry = pdPath.orderByChild("PD_CL_fid").equalTo(IdUsuario);
-    const fcPath = fire.database().ref("MAINDATA/FACTURAS2");
+    
+    const fcPath = fire.database().ref("MAINDATA/FACTURAS/"+ ano + "/" + mes);
     const fcQry = fcPath.orderByChild("FC_CL_fid").equalTo(IdUsuario);
+    
+    const rcPath = fire.database().ref("MAINDATA/RECIBOS/"+ ano + "/" + mes);
+    const rcQry = rcPath.orderByChild("RC_CL_fid").equalTo(IdUsuario);
+    
+    const inPath = fire.database().ref("MAINDATA/INDICADORES/"+ ano + "/" + mes);
+    const inQry = inPath.orderByChild("IN_CL_fid").equalTo(IdUsuario);
+    
+    const clPath = fire.database().ref("MAINDATA/FACTURAS/"+ ano + "/" + mes);
+    const clQry = clPath.orderByChild("CL_fid").equalTo(IdUsuario);
 
     const pd_paq = [];
     const fc_paq = [];
+    const rc_paq = [];
+    const in_paq = [];
+    const cl_paq = [];
+
+
 
     await pdQry.once("value", (snapshot) => {
-      console.log(snapshot);
+      
 
       snapshot.forEach((data) => {
         pd_paq.push(data.val());
       });
-
+      console.log("paq ped");
       console.log(pd_paq);
 
       dispatch({
@@ -65,7 +89,7 @@ export const FirebaseAcx = (mes,ano) => async (dispatch, getState) => {
       snapshot.forEach((data) => {
         fc_paq.push(data.val());
       });
-
+      console.log("paq fac");
       console.log(fc_paq);
 
       dispatch({
@@ -73,7 +97,57 @@ export const FirebaseAcx = (mes,ano) => async (dispatch, getState) => {
         payload: fc_paq,
       });
     });
-  } catch (error) {
+    
+    await rcQry.once("value", (snapshot) => {
+      console.log(snapshot);
+
+      snapshot.forEach((data) => {
+        rc_paq.push(data.val());
+      });
+      console.log("paq rec");
+      console.log(rc_paq);
+
+      dispatch({
+        type: OBTENER_RECIBOS,
+        payload: rc_paq,
+      });
+    });
+
+    await inQry.once("value", (snapshot) => {
+      console.log(snapshot);
+
+      snapshot.forEach((data) => {
+        in_paq.push(data.val());
+      });
+      console.log("paq ind");
+      console.log(in_paq);
+
+      dispatch({
+        type: OBTENER_INDICADORES,
+        payload: in_paq,
+      });
+    });
+
+    await clQry.once("value", (snapshot) => {
+      console.log(snapshot);
+
+      snapshot.forEach((data) => {
+        cl_paq.push(data.val());
+      });
+      console.log("paq cli");
+      console.log(cl_paq);
+
+      dispatch({
+        type: OBTENER_PERFIL,
+        payload: cl_paq,
+      });
+    });
+
+
+  } 
+  
+  
+  catch (error) {
     console.log(error);
   }
 };

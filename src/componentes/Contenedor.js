@@ -11,6 +11,7 @@ import Appbar from "./AppBar";
 import Facturas from "./PAGEFacturas";
 import Pedidos from "./PAGEPedidos";
 import Indicadores from "./PAGEIndicadores";
+import Recibos from "./PAGERecibos";
 import MainTheme from "../config/TemaMain.js";
 
 const drawerWidth = 240;
@@ -81,9 +82,11 @@ const Contenedor = () => {
             <div className={classes.toolbar} />
 
             <Switch>
-              <Route exact path="/pedidos" component={Pedidos} />
-              <Route exact path="/facturas" component={Facturas} />
               <Route exact path="/home" component={Indicadores} />
+              <Route exact path="/pedidos" component={Pedidos} />
+              <Route exact path="/recibos" component={Recibos} />
+              <Route exact path="/facturas" component={Facturas} />
+              
             </Switch>
           </main>
         </BrowserRouter>

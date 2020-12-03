@@ -10,7 +10,7 @@ import Card from "./Card/Card.js";
 import CardHeader from "./Card/CardHeader.js";
 //import CardFooter from "./Card/CardFooter.js";
 import CardBody from "./Card/CardBody.js";
-import Table from "./Table.js";
+import Table from "./Table2.js";
 import MainTheme from "../config/TemaMain.js";
 
 import { MenuItem, FormControl, Select } from "@material-ui/core";
@@ -69,13 +69,13 @@ color: '#eef7e4'
   },
 }));
 
-const Pedidos = () => {
+const Recibos = () => {
   const [age, setAge] = useState("2020");
   const [mes, setMes] = useState("ENERO");
   const usDpx = useDispatch();
   const classes = useStyles();
-  const pedidosQry = useSelector((store) => store.fireStore.pedidos);
-  const columnas = ["ID", "FECHA", "ZONA", "IMPORTE", "CANT. PAQUETES", "ESTADO"];
+  const pedidosQry = useSelector((store) => store.fireStore.recibos);
+  const columnas = ["ID", "FECHA", "IMPORTE"];
 
 
 
@@ -110,7 +110,7 @@ const Pedidos = () => {
             <CardHeader color="rose">
             <GridContainer  justify="space-between" direction="row" alignItems="center" className={classes.root}>
             <GridItem xs={9} md={6} sm={3} >
-              <h2 className={classes.cardTitleWhite}>PEDIDOS REALIZADOS</h2>
+              <h2 className={classes.cardTitleWhite}>RECIBOS EN CTA. CTE.</h2>
               <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
               </GridItem>
               <GridItem xs={3} >
@@ -160,4 +160,5 @@ const Pedidos = () => {
   );
 };
 
-export default Pedidos;
+
+export default Recibos
