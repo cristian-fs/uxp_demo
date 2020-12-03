@@ -156,16 +156,16 @@ export default function CustomTable(props) {
           ).map((row) => (
             <TableRow className={classes.tableBodyRow}   >
               <TableCell className={classes.tableCell} style={{ width: 260 }} align="left">
-                {row.id}
+                N° {row.id}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left" >
+              <TableCell className={classes.tableCell} style={{ width: 260 }} align="left" >
                 {row.FC_fecha}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
+              <TableCell className={classes.tableCell} style={{ width: 160 }} align="left">
                 {row.FC_tipo}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
-                {row.FC_monto}
+              <TableCell className={classes.tableCell} style={{ width: 160 }} align="left">
+                $ {row.FC_monto}
               </TableCell>
               <TableCell className={classes.tableCell} align="left">
                 {row.FC_estado}

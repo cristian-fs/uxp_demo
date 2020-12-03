@@ -155,19 +155,19 @@ export default function CustomTable(props) {
             : tableData
           ).map((row) => (
             <TableRow className={classes.tableBodyRow}   >
-              <TableCell className={classes.tableCell} style={{ width: 260 }} align="left">
-                {row.id}
+              <TableCell className={classes.tableCell} style={{ width: 220 }} align="left">
+                N° {row.id}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left" >
+              <TableCell className={classes.tableCell} style={{ width: 200 }} align="left" >
                 {row.PD_fecha}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
+              <TableCell className={classes.tableCell} style={{ width: 200 }}  align="left">
                 {row.PD_zona}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
-                {row.PD_monto}
+              <TableCell className={classes.tableCell} style={{ width: 130 }} align="left">
+                $ {row.PD_monto}
               </TableCell>
-              <TableCell className={classes.tableCell} align="left">
+              <TableCell className={classes.tableCell} style={{ width: 130 }} align="left">
                 {row.PD_paq}
               </TableCell>
               <TableCell className={classes.tableCell} align="left">

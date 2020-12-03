@@ -12,11 +12,8 @@ import {
   Card,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import AssignmentRoundedIcon from "@material-ui/icons/AssignmentRounded";
-import BallotRoundedIcon from "@material-ui/icons/BallotRounded";
-import CalendarTodayRoundedIcon from "@material-ui/icons/CalendarTodayRounded";
-import HelpRoundedIcon from "@material-ui/icons/HelpRounded";
-import PollRoundedIcon from "@material-ui/icons/PollRounded";
+import Icon from '@mdi/react'
+import { mdiFinance, mdiFileTable, mdiFileDocument, mdiLifebuoy, mdiOrderBoolDescending } from '@mdi/js';
 /* import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";*/
 
@@ -31,9 +28,9 @@ const estilos = makeStyles((theme) => ({
   },
 
   logo: {
-    margin: theme.spacing(1),
-    height: "63%",
-    width: "63%",
+    margin: theme.spacing(0.5),
+    height: "76%",
+    width: "76%",
     marginLeft: "25px",
   },
 }));
@@ -72,37 +69,70 @@ const Sidebar = (props) => {
         <ListItem button key="Indicadores" onClick={() => history.push("/home")}
         >
           <ListItemIcon>
-            <PollRoundedIcon color="secondary" />
+          <Icon path={mdiFinance}
+        title="mis indicadores"
+        size={1}
+        color= "grey"
+        />
           </ListItemIcon>
           <ListItemText primary={"Indicadores"} />
         </ListItem>
 
         <ListItem button key="Pedidos" onClick={handlePD}>
-          <ListItemIcon>
-            <AssignmentRoundedIcon color="secondary" />
+          <ListItemIcon><Icon path={mdiOrderBoolDescending}
+        title="mis indicadores"
+        size={1}
+        color= "grey"
+        />
+          
           </ListItemIcon>
           <ListItemText primary={"Pedidos"} />
         </ListItem>
 
+
+        <ListItem button key="Facturas" onClick={handleFC}>
+          <ListItemIcon>
+          <Icon path= {mdiFileDocument}
+          title="mis indicadores"
+          size={1}
+          color= "grey"
+        />
+          </ListItemIcon>
+          <ListItemText primary={"Facturas"} />
+        </ListItem>
+
+
+
         <ListItem button key="Recibos" onClick={handleRC}>
           <ListItemIcon>
-            <CalendarTodayRoundedIcon color="secondary" />
+          <Icon path={mdiFileTable}
+        title="mis indicadores"
+        size={1}
+        color= "grey"
+        />
           </ListItemIcon>
           <ListItemText primary={"Recibos"} />
         </ListItem>
 
-        <ListItem button key="Facturas" onClick={handleFC}>
-          <ListItemIcon>
-            <BallotRoundedIcon color="secondary" />
-          </ListItemIcon>
-          <ListItemText primary={"Facturas"} />
-        </ListItem>
+
+
+
+
+        
+
+
+
+
       </List>
       <Divider />
       <List>
         <ListItem button key="Ayuda">
           <ListItemIcon>
-            <HelpRoundedIcon color="secondary" />
+          <Icon path={mdiLifebuoy}
+        title="mis indicadores"
+        size={1}
+        color= "grey"
+        />
           </ListItemIcon>
           <ListItemText primary={"Ayuda"} />
         </ListItem>

@@ -5,7 +5,8 @@ import cx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 //import { obtenerPedidosAcx } from '../redux/Ducks'
-import Icon from "@material-ui/core/Icon";
+import { mdiFileDocument, mdiMapMarkerAlert, mdiFileDownload, mdiOrderBoolDescending, mdiUpdate, mdiCalendar, mdiCheckCircleOutline } from '@mdi/js';
+ import  {Icon as Iconmdi} from '@mdi/react';
 import Warning from "@material-ui/icons/Warning";
 import GridItem from "./Grid/GridItem.js";
 import GridContainer from "./Grid/GridContainer.js";
@@ -16,7 +17,6 @@ import CardIcon from "./Card/CardIcon.js";
 import CardFooter from "./Card/CardFooter.js";
 import CardBody from "./Card/CardBody.js";
 import styles from "../assets/jss/views/dashboardStyle.js";
-import AssignmentRoundedIcon from "@material-ui/icons/AssignmentRounded"
 import ChartistGraph from "react-chartist";
 
 
@@ -43,6 +43,12 @@ var delays2 = 80,
   data: {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
     series: [[12, 17, 7, 17, 23, 18, 38],[20, 30, 35, 5, 20, 10, 18],[25, 35, 4, 12, 40, 1, 8]]
+    
+  },
+
+  data2: {
+    labels: ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN"],
+    series: [[20, 30, 35, 5, 20, 10],[25, 35, 4, 12, 40, 1],[12, 17, 7, 17, 23, 18]]
     
   },
   options: {
@@ -98,7 +104,11 @@ var delays2 = 80,
           <Card>
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
-                <Icon><AssignmentRoundedIcon/></Icon>
+              <Iconmdi path={mdiOrderBoolDescending}
+        title="mis indicadores"
+        size= "26 px"
+        color= "white"
+        />
               </CardIcon>
               <p className={classes.cardCategory}>Pedidos Pendientes</p>
               <h2 className={classes.cardTitle}>
@@ -106,13 +116,17 @@ var delays2 = 80,
               </h2>
             </CardHeader>
             <CardFooter stats>
-              <div className={classes.stats}>
-                {/*<Danger>
-                  <Warning />
+            <div className={classes.stats}>
+                <Danger>
+                <Iconmdi path={mdiCheckCircleOutline}
+        title="facturas"
+        size="15 px"
+        color= "green"
+        />   
                 </Danger>
-                <a >
-                  Get more space
-  </a> */}
+                <div className={classes.stats}>
+                 Estas al día!
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -122,7 +136,11 @@ var delays2 = 80,
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
-                <Icon><AssignmentRoundedIcon/></Icon>
+              <Iconmdi path={mdiMapMarkerAlert}
+        title="facturas"
+        size="26 px"
+        color= "white"
+        />      
               </CardIcon>
               <p className={classes.cardCategory}>Entregas Fallidas</p>
               <h2 className={classes.cardTitle}>
@@ -134,9 +152,9 @@ var delays2 = 80,
                 <Danger>
                   <Warning />
                 </Danger>
-                <a >
-                  Comunicarse con soporte
-                </a>
+                <div className={classes.stats}>
+                 Comunicarse con soporte!
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -146,9 +164,13 @@ var delays2 = 80,
           <Card>
             <CardHeader color="warning" stats icon>
               <CardIcon color="warning">
-                <Icon><AssignmentRoundedIcon/></Icon>
+                <Iconmdi path={mdiFileDocument}
+        title="facturas"
+        size="26 px"
+        color= "white"
+        />
               </CardIcon>
-              <p className={classes.cardCategory}>Facturas</p>
+              <p className={classes.cardCategory}>Facturas Pendientes</p>
               <h2 className={classes.cardTitle}>
                $6500
               </h2>
@@ -156,11 +178,15 @@ var delays2 = 80,
             <CardFooter stats>
               <div className={classes.stats}>
                 <Danger>
-                  <Warning />
+                <Iconmdi path={mdiCalendar}
+        title="facturas"
+        size="15 px"
+        color= "grey"
+        />   
                 </Danger>
-                <a >
-                  Cierre 23/11
-                </a>
+                <div className={classes.stats}>
+                 Ultimo cierre 22/12.
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -170,21 +196,29 @@ var delays2 = 80,
           <Card>
             <CardHeader color="info" stats icon>
               <CardIcon color="info">
-                <Icon><AssignmentRoundedIcon/></Icon>
+              <Iconmdi path={mdiFileDownload}
+        title="facturas"
+        size="26 px"
+        color= "white"
+        />     
               </CardIcon>
-              <p className={classes.cardCategory}>Facturas</p>
+              <p className={classes.cardCategory}>Recibos sin descargar</p>
               <h2 className={classes.cardTitle}>
-               $6500
+               2
               </h2>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
-                <Danger>
-                  <Warning />
-                </Danger>
-                <a >
-                  Cierre 23/11
-                </a>
+                
+                <Iconmdi path={mdiUpdate}
+        title="mis indicadores"
+        size= "15 px"
+        color= "green"
+        />
+               
+                <div className={classes.stats}>
+                 Actualizado hoy.
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -194,7 +228,7 @@ var delays2 = 80,
       <GridContainer  justify="space-evenly">
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader color="warning">
+            <CardHeader color="success">
               <ChartistGraph
                  className="ct-chart"
                  data={dailySalesChart.data}
@@ -214,8 +248,17 @@ var delays2 = 80,
               </p>
             </CardBody>
             <CardFooter chart>
-              <div className={classes.stats}>
-                 actualizado 4 minutes ago
+            <div className={classes.stats}>
+                
+                <Iconmdi path={mdiUpdate}
+        title="mis indicadores"
+        size= "15 px"
+        color= "green"
+        />
+               
+                <div className={classes.stats}>
+                 Actualizado 4 minutes ago.
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -244,8 +287,17 @@ var delays2 = 80,
               </p>
             </CardBody>
             <CardFooter chart>
-              <div className={classes.stats}>
-                 actualizado 4 minutes ago
+            <div className={classes.stats}>
+                
+                <Iconmdi path={mdiUpdate}
+        title="mis indicadores"
+        size= "15 px"
+        color= "green"
+        />
+               
+                <div className={classes.stats}>
+                 Actualizado 4 minutes ago.
+              </div>
               </div>
             </CardFooter>
           </Card>
@@ -253,10 +305,10 @@ var delays2 = 80,
 
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader color="rose">
+            <CardHeader color="primary">
               <ChartistGraph
                  className="ct-chart"
-                 data={dailySalesChart.data}
+                 data={dailySalesChart.data2}
                  type="Bar"
                  options={dailySalesChart.options}
                  listener={dailySalesChart.animation}
@@ -264,17 +316,26 @@ var delays2 = 80,
               />
             </CardHeader>
             <CardBody>
-              <h4 className={classes.cardTitle}>Distribución por Zona</h4>
+              <h4 className={classes.cardTitle}>Ultimo semestre</h4>
               <p className={classes.cardCategory}>
                 <span className={classes.successText}>
                    
                 </span>{" "}
-                 GBA NORTE - GBA SUR - GBA OESTE - CABA.
+                 ENERO - JUNIO / 2020
               </p>
             </CardBody>
             <CardFooter chart>
-              <div className={classes.stats}>
-                 actualizado 4 minutes ago
+            <div className={classes.stats}>
+                
+                <Iconmdi path={mdiUpdate}
+        title="mis indicadores"
+        size= "15 px"
+        color= "green"
+        />
+               
+                <div className={classes.stats}>
+                 Actualizado 4 minutes ago.
+              </div>
               </div>
             </CardFooter>
           </Card>
