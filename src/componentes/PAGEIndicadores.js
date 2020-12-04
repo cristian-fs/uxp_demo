@@ -5,7 +5,7 @@ import cx from 'clsx';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from "@material-ui/core/styles";
 //import { obtenerPedidosAcx } from '../redux/Ducks'
-import { mdiFileDocument, mdiMapMarkerAlert, mdiFileDownload, mdiOrderBoolDescending, mdiUpdate, mdiCalendar, mdiCheckCircleOutline } from '@mdi/js';
+import { mdiFileDocument, mdiMapMarkerOff , mdiFileDownload, mdiOrderBoolDescending, mdiUpdate, mdiCalendar, mdiCheckCircleOutline } from '@mdi/js';
  import  {Icon as Iconmdi} from '@mdi/react';
 import Warning from "@material-ui/icons/Warning";
 import GridItem from "./Grid/GridItem.js";
@@ -136,7 +136,7 @@ var delays2 = 80,
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
-              <Iconmdi path={mdiMapMarkerAlert}
+              <Iconmdi path={mdiMapMarkerOff }
         title="facturas"
         size="26 px"
         color= "white"
@@ -204,7 +204,7 @@ var delays2 = 80,
               </CardIcon>
               <p className={classes.cardCategory}>Recibos sin descargar</p>
               <h2 className={classes.cardTitle}>
-               2
+               5
               </h2>
             </CardHeader>
             <CardFooter stats>
