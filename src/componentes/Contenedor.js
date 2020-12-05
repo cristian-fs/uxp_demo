@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { FirebaseAcx } from "../REDUX/Ducks";
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
@@ -43,7 +43,8 @@ const estilos = makeStyles((theme) => ({
 
 
 
-const Contenedor = () => {
+const Contenedor = (props) => {
+  const {history} = props;
   const usDpx = useDispatch();
   const classes = estilos();
   const mes = "ENERO"
@@ -53,18 +54,24 @@ const Contenedor = () => {
     setAbrir(!abrir);
   };
 
-  useEffect(() => {
-    usDpx(FirebaseAcx(mes, ano));
 
-    console.log("se ejecuto accion");
+  function closeHome() {
+history.push("/")
+
+};
+
+  useEffect(() => {
+     usDpx(FirebaseAcx(mes, ano));
+    console.log("se ejecuto accion  en contenedor");
   });
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <ThemeProvider theme={MainTheme}>
-        <Appbar desplegar={desplegar} />
+        
         <BrowserRouter>
+        <Appbar desplegar={desplegar} closeHome={closeHome} />
           <nav className={classes.drawer} aria-label="mailbox folders">
             <Hidden xsDown implementation="css">
               <Sidebar variant="permanent" open></Sidebar>
@@ -95,4 +102,4 @@ const Contenedor = () => {
   );
 };
 
-export default Contenedor;
+export default withRouter(Contenedor);

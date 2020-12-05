@@ -14,6 +14,7 @@ class Main extends Component {
 
     this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSnkClose = this.handleSnkClose.bind(this);
     //this.signup = this.signup.bind(this);
     this.state = {
       email: "",
@@ -57,7 +58,10 @@ class Main extends Component {
       });
   }   */
 
+  handleSnkClose() {
+this.setState({openSnack:false})
 
+  }
 
   handleChange(e) {
     this.setState({
@@ -74,7 +78,7 @@ class Main extends Component {
         <ThemeProvider theme={MainTheme}>
 
           <LogIn handleChange={this.handleChange} handleSubmit={this.login} />
-          <Snackbar open={this.state.openSnack} autoHideDuration={3000} >
+          <Snackbar open={this.state.openSnack} onClose={this.handleSnkClose} autoHideDuration={2000} >
           <Alert elevation={6} variant="filled"  severity="error">
           {this.state.errMsj}
         </Alert>

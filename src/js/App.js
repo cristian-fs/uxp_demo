@@ -39,7 +39,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route exact path="/home" component={Contenedor} />
+              <Route exact path= {["/home", "/pedidos", "/facturas"]} component={Contenedor} />
             </Switch>
           </BrowserRouter>
         </Provider>
