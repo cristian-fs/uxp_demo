@@ -94,7 +94,7 @@ const Ayuda = () => {
       <GridContainer>
         <GridItem xs={12} sm={12} md={8}>
           <Card>
-            <CardHeader color="primary">
+            <CardHeader color="info">
               <h4 className={classes.cardTitleWhite}>
                 Plataforma WEB para Gestión de cuentas corrientes
               </h4>
@@ -128,7 +128,7 @@ const Ayuda = () => {
                       color="grey"
                     />
                   </ListItemIcon>
-                  <ListItemText>Node JS Entorno</ListItemText>
+                  <ListItemText>Node JS </ListItemText>
                 </ListItem>
 
                 <ListItem disableGutters>
@@ -216,9 +216,11 @@ const Ayuda = () => {
               <p>Si bien el layout es responsive, no esta optimizado del todo para uso en móbiles.</p>
               <p>Dado que la aplicación es una demo, la base de datos fue generada
               de forma aleatoria con un JSON Generator, es decir no existe
-              relación entre los distintos comprobantes (montos,cantidad,IDs).</p>
+              relación entre los distintos comprobantes (montos,cantidades,IDs).</p>
               <p>
+              <a href="https://www.github.com/cristian-fs/uxp_demo" >
               Repositorio: github.com/cristian-fs/uxp_demo
+              </a>
               </p>
             </CardBody>
           </Card>
@@ -226,20 +228,22 @@ const Ayuda = () => {
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
             <CardAvatar profile>
-              <a href="#pablo" onClick={(e) => e.preventDefault()}>
+              <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/" >
                 <img src={avatar} alt="..." />
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h6 className={classes.cardCategory}>Cristian Seoane</h6>
-              <h4 className={classes.cardTitle}>DESARROLLADOR WEB Jr.</h4>
+              <h5  className={classes.cardCategory}>DESARROLLADOR WEB Jr.</h5>
+              <h4 className={classes.cardTitle}>Cristian Seoane</h4>
               <p className={classes.description}>
               Apasionado por la tecnología y la manufactura, acompañado de un aprendizaje autodidacta 
               busco desarrollar fortalezas, aprender de los errores y afrontar los constantes desafíos 
               que la vida nos depara...
               </p>
               <Button color="secondary" round>
+              <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/" >
                 Linked In
+                </a>
               </Button>
             </CardBody>
           </Card>
