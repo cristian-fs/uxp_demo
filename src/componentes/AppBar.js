@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
     menuButton: {
         marginRight: theme.spacing(2),
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('lg')]: {
             display: 'none',
         },
     },
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
         background: '#424242', //#424242  #383352
 
-        [theme.breakpoints.up('sm')]: {
+        [theme.breakpoints.up('lg')]: {
             width: `calc(100% - ${240}px)`,     //  aca va  DrawerWidth...  pero esta en otro componente
             marginLeft: 240,
         },

@@ -93,7 +93,23 @@ var delays2 = 80,
         });
       }
     }
+  },
+  animation2: {
+    draw: function(data) {
+      if (data.type === "bar") {
+        data.element.animate({
+          opacity: {
+            begin: (data.index + 1) * delays2,
+            dur: durations2,
+            from: 0,
+            to: 1,
+            easing: "ease"
+          }
+        });
+      }
+    }
   }
+
 };
   
 
@@ -112,7 +128,7 @@ var delays2 = 80,
               </CardIcon>
               <p className={classes.cardCategory}>Pedidos Pendientes</p>
               <h2 className={classes.cardTitle}>
-                1 
+                7
               </h2>
             </CardHeader>
             <CardFooter stats>
@@ -273,7 +289,7 @@ var delays2 = 80,
                  data={dailySalesChart.data}
                  type="Bar"
                  options={dailySalesChart.options}
-                 listener={dailySalesChart.animation}
+                 listener={dailySalesChart.animation2}
                 
               />
             </CardHeader>
@@ -311,7 +327,7 @@ var delays2 = 80,
                  data={dailySalesChart.data2}
                  type="Bar"
                  options={dailySalesChart.options}
-                 listener={dailySalesChart.animation}
+                 listener={dailySalesChart.animation2}
                 
               />
             </CardHeader>

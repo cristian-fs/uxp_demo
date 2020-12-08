@@ -22,9 +22,9 @@ const useStyles = makeStyles((theme) => ({
   },
 select: {
 color: '#eef7e4'
-
-
 },
+
+
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -104,16 +104,17 @@ const Facturas = () => {
 
   return (
     <ThemeProvider theme={MainTheme}>
-      <GridContainer>
+      <GridContainer className={classes.root}>
         <GridItem xs={12} >
+        
           <Card>
             <CardHeader color="rose">
             <GridContainer  justify="space-between" direction="row" alignItems="center" className={classes.root}>
-            <GridItem xs={9} md={6} sm={3} >
+            <GridItem xs={12} md={9} sm={9} >
               <h2 className={classes.cardTitleWhite}>FACTURAS EN CTA. CTE.</h2>
               <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
               </GridItem>
-              <GridItem xs={3} >
+              <GridItem xs={3}  >
               <FormControl className={classes.formControl}>
                 <Select
                   labelId="demo-simple-select-label"
@@ -154,6 +155,7 @@ const Facturas = () => {
               />
             </CardBody>
           </Card>
+         
         </GridItem>
       </GridContainer>
     </ThemeProvider>

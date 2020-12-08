@@ -109,7 +109,7 @@ const Pedidos = () => {
           <Card>
             <CardHeader color="rose">
             <GridContainer  justify="space-between" direction="row" alignItems="center" className={classes.root}>
-            <GridItem xs={9} md={6} sm={3} >
+            <GridItem xs={12} md={9} sm={9} >
               <h2 className={classes.cardTitleWhite}>PEDIDOS REALIZADOS</h2>
               <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
               </GridItem>

@@ -126,7 +126,7 @@ const Sidebar = (props) => {
       </List>
       <Divider />
       <List>
-        <ListItem button key="Ayuda">
+        <ListItem button key="Ayuda" onClick={() => history.push("/ayuda")}>
           <ListItemIcon>
           <Icon path={mdiLifebuoy}
         title="mis indicadores"

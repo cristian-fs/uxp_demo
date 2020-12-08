@@ -12,6 +12,7 @@ import Facturas from "./PAGEFacturas";
 import Pedidos from "./PAGEPedidos";
 import Indicadores from "./PAGEIndicadores";
 import Recibos from "./PAGERecibos";
+import Ayuda from "./PAGEAyuda";
 import MainTheme from "../config/TemaMain.js";
 
 const drawerWidth = 240;
@@ -22,7 +23,7 @@ const estilos = makeStyles((theme) => ({
     display: "flex",
   },
   drawer: {
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("lg")]: {
       width: drawerWidth,
       flexShrink: 0,
     },
@@ -73,7 +74,7 @@ history.push("/")
         <BrowserRouter>
         <Appbar desplegar={desplegar} closeHome={closeHome} />
           <nav className={classes.drawer} aria-label="mailbox folders">
-            <Hidden xsDown implementation="css">
+            <Hidden mdDown implementation="css">
               <Sidebar variant="permanent" open></Sidebar>
             </Hidden>
 
@@ -93,6 +94,7 @@ history.push("/")
               <Route exact path="/pedidos" component={Pedidos} />
               <Route exact path="/recibos" component={Recibos} />
               <Route exact path="/facturas" component={Facturas} />
+              <Route exact path="/ayuda" component={Ayuda} />
               
             </Switch>
           </main>
