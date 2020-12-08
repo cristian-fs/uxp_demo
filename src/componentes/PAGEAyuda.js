@@ -236,9 +236,10 @@ const Ayuda = () => {
               <h5  className={classes.cardCategory}>DESARROLLADOR WEB Jr.</h5>
               <h4 className={classes.cardTitle}>Cristian Seoane</h4>
               <p className={classes.description}>
-              Apasionado por la tecnología y la manufactura, acompañado de un aprendizaje autodidacta 
-              busco desarrollar fortalezas, aprender de los errores y afrontar los constantes desafíos 
-              que la vida nos depara...
+              Apasionado por la tecnología y el arte de "crear", acompañado de un aprendizaje autodidacta y esquivando paradigmas
+               busco superarme día a día, aprendiendo de los errores y sumando valor al conocimiento para compartirlo con quienes 
+               mas lo necesitan. 
+
               </p>
               <Button color="secondary" round>
               <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/" >
