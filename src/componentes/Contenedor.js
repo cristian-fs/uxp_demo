@@ -18,7 +18,7 @@ import MainTheme from "../config/TemaMain.js";
 const drawerWidth = 240;
 
 const estilos = makeStyles((theme) => ({
-  //q onda hay un parentesis de mas aca?   (theme)
+  
   root: {
     display: "flex",
   },

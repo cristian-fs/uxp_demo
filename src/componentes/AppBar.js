@@ -50,7 +50,7 @@ const Appbar = (props) => {
         fire.auth().signOut();
         closeHome();
         
-        //history.replace("./");
+        
     }
 
 
@@ -61,10 +61,10 @@ const Appbar = (props) => {
                 
                 <IconButton
                     color="primary"
-                    aria-label="menu"                                                     // en la doc aca dice> aria-label="open drawer"
+                    aria-label="menu"                                                    
                     className={classes.menuButton}
                     //edge="start"
-                    onClick={() => props.desplegar()}                                     //nose porque un arrow aca....
+                    onClick={() => props.desplegar()}                                     
                 >
                     <MenuIcon />
                 </IconButton>

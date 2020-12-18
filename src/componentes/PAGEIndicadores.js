@@ -26,8 +26,7 @@ const useStyles = makeStyles(styles);
 
 const Indicadores = () => {
   
-  //const classes = estilos();
- // const indicadoresQry = useSelector((store) => store.fireStore.pedidos);
+  
  const classes = useStyles();
 
 
@@ -56,7 +55,7 @@ var delays2 = 80,
       tension: 0
     }),
     low: 0,
-    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    high: 50, 
     chartPadding: {
       top: 0,
       right: 0,
@@ -64,7 +63,7 @@ var delays2 = 80,
       left: 0
     }
   },
-  // for animation
+  
   animation: {
     draw: function(data) {
       if (data.type === "line" || data.type === "area") {

@@ -41,7 +41,7 @@ const Sidebar = (props) => {
   const theme = useTheme();
   const classes = estilos();
   const container =
-    window !== undefined ? () => window().document.body : undefined; // nose que es estoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+    window !== undefined ? () => window().document.body : undefined; 
 
   function handlePD() {
     history.push("/pedidos");
@@ -149,9 +149,9 @@ const Sidebar = (props) => {
             elevation={23}
             container={container}
             variant={props.variant}
-            anchor={theme.direction === "rtl" ? "right" : "left"} //porque aca no se mete directamente el valor rigth o left?   impuro?
+            anchor={theme.direction === "rtl" ? "right" : "left"}
             open={props.open}
-            onClose={props.onClose ? props.onClose : null} //si hay "algo" que onClose = "algo", sino  nulo  (nada)  es por si no lo definimos cuando instanciamos no pasa nada
+            onClose={props.onClose ? props.onClose : null} 
             classes={{
               paper: classes.drawerPaper,
             }}

@@ -10,11 +10,13 @@ import Link from "@material-ui/core/Link";
 import mainBg from "../img/mainBg.jpg";
 
 const estilos = makeStyles((theme) => ({
-  //q onda hay un parentesis de mas aca?   (theme)
+  
   root: {
     display: "flex",
     height: "100vh",
+    backgroundSize: "cover",
     backgroundImage: `url(${mainBg})`,
+    
   },
 
   logo: {
@@ -29,14 +31,7 @@ const estilos = makeStyles((theme) => ({
   },
  
 
-  /* image: {
-        //backgroundImage: `url(${mainBg})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundColor:
-          theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      },*/
+  
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
@@ -71,7 +66,7 @@ function LogIn(props) {
         justify="center"
       >
         <CssBaseline />
-        {/* <Grid item xs={false} sm={4} md={7} className={classes.image}  /> */}
+      
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
             <img
@@ -80,10 +75,7 @@ function LogIn(props) {
               alt="logo"
             ></img>
 
-            {/* <Typography component="h1" variant="h4">
-                        URBANEXPRESS
-                    
-    </Typography>*/}
+        
             <Typography className= {classes.subtitle} component="h1" variant="h5">
               Acceso Clientes
             </Typography>

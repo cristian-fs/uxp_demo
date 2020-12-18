@@ -79,12 +79,7 @@ const Recibos = () => {
 
 
 
-/*
-  function dispatcher () {
-    usDpx(FirebaseAcx(mes, age));
-    console.log("funtion dis" + mes + age)
-  }
-*/
+
   const handleChangeAno = (event) => {
     setAge(event.target.value)
     

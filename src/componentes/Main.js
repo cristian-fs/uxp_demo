@@ -70,7 +70,7 @@ this.setState({openSnack:false})
   }
 
   render() {
-    // <LogIn handleChange={this.handleChange} handleSubmit={this.login} msg = "hola"/>
+    
 
     return (
       <div>

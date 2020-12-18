@@ -85,9 +85,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Ayuda = () => {
-  //const usDpx = useDispatch();
+ 
   const classes = useStyles();
-  //const pedidosQry = useSelector((store) => store.fireStore.facturas);
+ 
 
   return (
     <ThemeProvider theme={MainTheme}>
@@ -238,7 +238,7 @@ const Ayuda = () => {
               <p className={classes.description}>
               Apasionado por la tecnología y el arte de "crear", acompañado de un aprendizaje autodidacta y esquivando paradigmas
                busco superarme día a día, aprendiendo de los errores y sumando valor al conocimiento para compartirlo con quienes 
-               mas lo necesitan. 
+               más lo necesitan. 
 
               </p>
               <Button color="secondary" round>

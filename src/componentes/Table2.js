@@ -20,7 +20,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
 
-/////////////////////////////////////////////////////////////////////////////////////// table pagination buttons
+/////////////////////////////////////////////////////////////////////////////////////// botones paginación
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -92,7 +92,7 @@ TablePaginationActions.propTypes = {
 
 
 
-///////////////////////////////////////////////////////////////////////////// table component      /////////////
+///////////////////////////////////////////////////////////////////////////// tabla     /////////////
 
 const useStyles = makeStyles(styles);
 
@@ -103,7 +103,7 @@ export default function CustomTable(props) {
 
   
   const classes = useStyles();
-  const { tableHead, tableHeaderColor, tableData } = props;   //tableData,
+  const { tableHead, tableHeaderColor, tableData } = props;   
   
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);

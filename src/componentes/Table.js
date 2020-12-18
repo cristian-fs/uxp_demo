@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-// @material-ui/core components
+
 import { makeStyles, useTheme, ThemeProvider } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
@@ -8,9 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import MainTheme from '../config/TemaMain.js'
-// core components
 import styles from "../assets/jss/components/tableStyle.js";
-//////
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
@@ -20,7 +18,7 @@ import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 
 
-/////////////////////////////////////////////////////////////////////////////////////// table pagination buttons
+/////////////////////////////////////////////////////////////////////////////////////// botones paginación
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -92,7 +90,7 @@ TablePaginationActions.propTypes = {
 
 
 
-///////////////////////////////////////////////////////////////////////////// table component      /////////////
+///////////////////////////////////////////////////////////////////////////// tabla      /////////////
 
 const useStyles = makeStyles(styles);
 
@@ -103,7 +101,7 @@ export default function CustomTable(props) {
 
   
   const classes = useStyles();
-  const { tableHead, tableHeaderColor, tableData } = props;   //tableData,
+  const { tableHead, tableHeaderColor, tableData } = props;   
   
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);

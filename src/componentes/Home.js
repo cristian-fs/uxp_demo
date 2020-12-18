@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import fire from "../config/fire";
 import { Hidden } from "@material-ui/core";
-/* import Content from "./Content"*/
 import Appbar from "./AppBar"
 import Sidebar from "./Sidebar"
 
@@ -101,10 +100,7 @@ class Home extends React.Component {
 
     }
 
-    /*<Sidebar 
-                    variant= "temporary"
-                    open= {true} 
-                    /> */
+    
 
     render() {
 
