@@ -5,8 +5,8 @@ import fire from "../config/fire";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import MainTheme from "../config/TemaMain.js";
 import { ThemeProvider, makeStyles } from "@material-ui/core/styles";
-import Snackbar from '@material-ui/core/Snackbar';
-import Alert from '@material-ui/lab/Alert';
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
 
 class Main extends Component {
   constructor(props) {
@@ -20,11 +20,12 @@ class Main extends Component {
       email: "",
       password: "",
       openSnack: false,
-      errMsg: ""
+      errMsg: "",
     };
   }
 
   login(e) {
+    //Autentificación con Firebase OAuth
     const { history } = this.props;
 
     e.preventDefault();
@@ -39,11 +40,10 @@ class Main extends Component {
         console.log(err);
         this.setState({
           openSnack: true,
-          errMsj: err.message
+          errMsj: err.message,
         });
       });
   }
-
 
   /* signup(e) {
     e.preventDefault();
@@ -59,31 +59,32 @@ class Main extends Component {
   }   */
 
   handleSnkClose() {
-this.setState({openSnack:false})
-
+    //función que cierra el snackBar
+    this.setState({ openSnack: false });
   }
 
   handleChange(e) {
+    //función que recupera los inputs y almacena en el state
     this.setState({
       [e.target.name]: e.target.value,
     });
   }
 
   render() {
-    
-
     return (
       <div>
         <CssBaseline />
         <ThemeProvider theme={MainTheme}>
-
           <LogIn handleChange={this.handleChange} handleSubmit={this.login} />
-          <Snackbar open={this.state.openSnack} onClose={this.handleSnkClose} autoHideDuration={2000} >
-          <Alert elevation={6} variant="filled"  severity="error">
-          {this.state.errMsj}
-        </Alert>
-      </Snackbar>
-          
+          <Snackbar
+            open={this.state.openSnack}
+            onClose={this.handleSnkClose}
+            autoHideDuration={2000}
+          >
+            <Alert elevation={6} variant="filled" severity="error">
+              {this.state.errMsj}
+            </Alert>
+          </Snackbar>
         </ThemeProvider>
       </div>
     );

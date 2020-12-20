@@ -85,9 +85,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Ayuda = () => {
- 
   const classes = useStyles();
- 
 
   return (
     <ThemeProvider theme={MainTheme}>
@@ -105,11 +103,12 @@ const Ayuda = () => {
             <CardBody>
               <h4 className={classes.cardTitle}>PRESENTACIÓN</h4>
               <p>
-              Realice esta web como práctica sobre las diferentes tecnologías
-              que fui incorporando al stack, se trata de un modelo de plataforma
-              web para seguimiento de comprobantes, con un panel de indicadores
-              clave como portada. Sus funcionalidades son básicas y limitadas
-              respondiendo al modelo de MVP (Minimum Viable Product).
+                Realice esta web como práctica sobre las diferentes tecnologías
+                que fui incorporando al stack, se trata de un modelo de
+                plataforma web para seguimiento de comprobantes, con un panel de
+                indicadores clave como portada. Sus funcionalidades son básicas
+                y limitadas respondiendo al modelo de MVP (Minimum Viable
+                Product).
               </p>
               <p></p>
               <p></p>
@@ -168,7 +167,6 @@ const Ayuda = () => {
                     Firebase API (módulos: AuthO y RT Database)
                   </ListItemText>
                 </ListItem>
-
               </List>
               <List>
                 <ListItem disableGutters>
@@ -210,17 +208,22 @@ const Ayuda = () => {
                   </ListItemIcon>
                   <ListItemText>React Hooks</ListItemText>
                 </ListItem>
-
               </List>
               <h4 className={classes.cardTitle}>COMENTARIOS ADICIONALES</h4>
-              <p>Si bien el layout es responsive, no esta optimizado del todo para uso en móbiles.</p>
-              <p>Dado que la aplicación es una demo, la base de datos fue generada
-              de forma aleatoria con un JSON Generator, es decir no existe
-              relación entre los distintos comprobantes (montos,cantidades,IDs).</p>
               <p>
-              <a href="https://www.github.com/cristian-fs/uxp_demo" >
-              Repositorio: github.com/cristian-fs/uxp_demo
-              </a>
+                Si bien el layout es responsive, no esta optimizado del todo
+                para uso en móbiles.
+              </p>
+              <p>
+                Dado que la aplicación es una demo, la base de datos fue
+                generada de forma aleatoria con un JSON Generator, es decir no
+                existe relación entre los distintos comprobantes
+                (montos,cantidades,IDs).
+              </p>
+              <p>
+                <a href="https://www.github.com/cristian-fs/uxp_demo">
+                  Repositorio: github.com/cristian-fs/uxp_demo
+                </a>
               </p>
             </CardBody>
           </Card>
@@ -228,22 +231,22 @@ const Ayuda = () => {
         <GridItem xs={12} sm={12} md={4}>
           <Card profile>
             <CardAvatar profile>
-              <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/" >
+              <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/">
                 <img src={avatar} alt="..." />
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h5  className={classes.cardCategory}>DESARROLLADOR WEB Jr.</h5>
+              <h5 className={classes.cardCategory}>DESARROLLADOR WEB Jr.</h5>
               <h4 className={classes.cardTitle}>Cristian Seoane</h4>
               <p className={classes.description}>
-              Apasionado por la tecnología y el arte de "crear", acompañado de un aprendizaje autodidacta y esquivando paradigmas
-               busco superarme día a día, aprendiendo de los errores y sumando valor al conocimiento para compartirlo con quienes 
-               más lo necesitan. 
-
+                Apasionado por la tecnología y el arte de "crear", acompañado de
+                un aprendizaje autodidacta y esquivando paradigmas busco
+                superarme día a día, aprendiendo de los errores y sumando valor
+                al conocimiento para compartirlo con quienes más lo necesitan.
               </p>
               <Button color="secondary" round>
-              <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/" >
-                Linked In
+                <a href="https://www.linkedin.com/in/cristian-seoane-a3938020/">
+                  Linked In
                 </a>
               </Button>
             </CardBody>

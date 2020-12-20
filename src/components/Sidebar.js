@@ -12,8 +12,14 @@ import {
   Card,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Icon from '@mdi/react'
-import { mdiFinance, mdiFileTable, mdiFileDocument, mdiLifebuoy, mdiOrderBoolDescending } from '@mdi/js';
+import Icon from "@mdi/react";
+import {
+  mdiFinance,
+  mdiFileTable,
+  mdiFileDocument,
+  mdiLifebuoy,
+  mdiOrderBoolDescending,
+} from "@mdi/js";
 /* import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";*/
 
@@ -41,7 +47,9 @@ const Sidebar = (props) => {
   const theme = useTheme();
   const classes = estilos();
   const container =
-    window !== undefined ? () => window().document.body : undefined; 
+    window !== undefined ? () => window().document.body : undefined;
+
+  //Ruteo
 
   function handlePD() {
     history.push("/pedidos");
@@ -66,73 +74,68 @@ const Sidebar = (props) => {
       </div>
       <Divider />
       <List>
-        <ListItem button key="Indicadores" onClick={() => history.push("/home")}
+        <ListItem
+          button
+          key="Indicadores"
+          onClick={() => history.push("/home")}
         >
           <ListItemIcon>
-          <Icon path={mdiFinance}
-        title="mis indicadores"
-        size={1}
-        color= "grey"
-        />
+            <Icon
+              path={mdiFinance}
+              title="mis indicadores"
+              size={1}
+              color="grey"
+            />
           </ListItemIcon>
           <ListItemText primary={"Indicadores"} />
         </ListItem>
 
         <ListItem button key="Pedidos" onClick={handlePD}>
-          <ListItemIcon><Icon path={mdiOrderBoolDescending}
-        title="mis indicadores"
-        size={1}
-        color= "grey"
-        />
-          
+          <ListItemIcon>
+            <Icon
+              path={mdiOrderBoolDescending}
+              title="mis indicadores"
+              size={1}
+              color="grey"
+            />
           </ListItemIcon>
           <ListItemText primary={"Pedidos"} />
         </ListItem>
 
-
         <ListItem button key="Facturas" onClick={handleFC}>
           <ListItemIcon>
-          <Icon path= {mdiFileDocument}
-          title="mis indicadores"
-          size={1}
-          color= "grey"
-        />
+            <Icon
+              path={mdiFileDocument}
+              title="mis indicadores"
+              size={1}
+              color="grey"
+            />
           </ListItemIcon>
           <ListItemText primary={"Facturas"} />
         </ListItem>
 
-
-
         <ListItem button key="Recibos" onClick={handleRC}>
           <ListItemIcon>
-          <Icon path={mdiFileTable}
-        title="mis indicadores"
-        size={1}
-        color= "grey"
-        />
+            <Icon
+              path={mdiFileTable}
+              title="mis indicadores"
+              size={1}
+              color="grey"
+            />
           </ListItemIcon>
           <ListItemText primary={"Recibos"} />
         </ListItem>
-
-
-
-
-
-        
-
-
-
-
       </List>
       <Divider />
       <List>
         <ListItem button key="Ayuda" onClick={() => history.push("/ayuda")}>
           <ListItemIcon>
-          <Icon path={mdiLifebuoy}
-        title="mis indicadores"
-        size={1}
-        color= "grey"
-        />
+            <Icon
+              path={mdiLifebuoy}
+              title="mis indicadores"
+              size={1}
+              color="grey"
+            />
           </ListItemIcon>
           <ListItemText primary={"Ayuda"} />
         </ListItem>
@@ -151,7 +154,7 @@ const Sidebar = (props) => {
             variant={props.variant}
             anchor={theme.direction === "rtl" ? "right" : "left"}
             open={props.open}
-            onClose={props.onClose ? props.onClose : null} 
+            onClose={props.onClose ? props.onClose : null}
             classes={{
               paper: classes.drawerPaper,
             }}

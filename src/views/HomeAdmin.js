@@ -18,7 +18,6 @@ import MainTheme from "../config/TemaMain.js";
 const drawerWidth = 240;
 
 const estilos = makeStyles((theme) => ({
-  
   root: {
     display: "flex",
   },
@@ -40,29 +39,26 @@ const estilos = makeStyles((theme) => ({
   },
 }));
 
-
-
-
-
 const HomeAdmin = (props) => {
-  const {history} = props;
+  const { history } = props;
   const usDpx = useDispatch();
   const classes = estilos();
-  const mes = "ENERO"
-  const ano = "2020"
+  const mes = "ENERO";
+  const ano = "2020";
   const [abrir, setAbrir] = useState(false);
   const desplegar = () => {
+    //desplega SideBar
     setAbrir(!abrir);
   };
 
-
   function closeHome() {
-history.push("/")
-
-};
+    //Exit
+    history.push("/");
+  }
 
   useEffect(() => {
-     usDpx(FirebaseAcx(mes, ano));
+    //conecta a Firebase y recupera tablas  Pedidos-Facuras-Recibos
+    usDpx(FirebaseAcx(mes, ano));
     console.log("se ejecuto accion  en contenedor");
   });
 
@@ -70,9 +66,8 @@ history.push("/")
     <div className={classes.root}>
       <CssBaseline />
       <ThemeProvider theme={MainTheme}>
-        
         <BrowserRouter>
-        <Appbar desplegar={desplegar} closeHome={closeHome} />
+          <Appbar desplegar={desplegar} closeHome={closeHome} />
           <nav className={classes.drawer} aria-label="mailbox folders">
             <Hidden mdDown implementation="css">
               <Sidebar variant="permanent" open></Sidebar>
@@ -95,7 +90,6 @@ history.push("/")
               <Route exact path="/recibos" component={Recibos} />
               <Route exact path="/facturas" component={Facturas} />
               <Route exact path="/ayuda" component={Ayuda} />
-              
             </Switch>
           </main>
         </BrowserRouter>

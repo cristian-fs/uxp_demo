@@ -31,7 +31,7 @@ class App extends Component {
   }*/
 
   render() {
-    const mainStore = crearMainStore();
+    const mainStore = crearMainStore(); //declara store(Redux)
 
     return (
       <>
@@ -39,7 +39,11 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route exact path= {["/home", "/pedidos", "/facturas","/ayuda"]} component={HomeAdmin} />
+              <Route
+                exact
+                path={["/home", "/pedidos", "/facturas", "/ayuda"]}
+                component={HomeAdmin}
+              />
             </Switch>
           </BrowserRouter>
         </Provider>

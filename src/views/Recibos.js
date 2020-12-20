@@ -16,20 +16,15 @@ import MainTheme from "../config/TemaMain.js";
 import { MenuItem, FormControl, Select } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-
   root: {
     flexGrow: 1,
   },
-select: {
-color: '#eef7e4'
-
-
-},
+  select: {
+    color: "#eef7e4",
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    
-    
   },
 
   selectEmpty: {
@@ -77,68 +72,68 @@ const Recibos = () => {
   const pedidosQry = useSelector((store) => store.fireStore.recibos);
   const columnas = ["ID", "FECHA", "IMPORTE"];
 
-
-
-
   const handleChangeAno = (event) => {
-    setAge(event.target.value)
-    
-    usDpx(FirebaseAcx(mes, event.target.value));
-    
-    
-    
-  };
-  
+    //ejecuta un query cuando cambia el SELECT  Año
+    setAge(event.target.value);
 
+    usDpx(FirebaseAcx(mes, event.target.value));
+  };
 
   const handleChangeMes = (event) => {
+    //ejecuta un query cuando cambia el SELECT  Mes
     setMes(event.target.value);
-    usDpx(FirebaseAcx (event.target.value, age));
-    console.log("este es anio" + age )
+    usDpx(FirebaseAcx(event.target.value, age));
+    console.log("este es anio" + age);
   };
 
   return (
     <ThemeProvider theme={MainTheme}>
       <GridContainer>
-        <GridItem xs={12} >
+        <GridItem xs={12}>
           <Card>
             <CardHeader color="rose">
-            <GridContainer  justify="space-between" direction="row" alignItems="center" className={classes.root}>
-            <GridItem xs={9} md={6} sm={3} >
-              <h2 className={classes.cardTitleWhite}>RECIBOS EN CTA. CTE.</h2>
-              <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
-              </GridItem>
-              <GridItem xs={3} >
-              <FormControl className={classes.formControl}>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={mes}
-                  onChange={handleChangeMes}
-                  className={classes.select}
-                >
-                  <MenuItem value={"ENERO"}>ENERO</MenuItem>
-                  <MenuItem value={"FEBRERO"}>FEBRERO</MenuItem>
-                  <MenuItem value={"MARZO"}>MARZO</MenuItem>
-                  <MenuItem value={"ABRIL"}>ABRIL</MenuItem>
-                  <MenuItem value={"MAYO"}>MAYO</MenuItem>
-                  <MenuItem value={"JUNIO"}>JUNIO</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <Select
-                  labelId="demo-simple-select-label2"
-                  id="demo-simple-select2"
-                  value={age}
-                  onChange={handleChangeAno}
-                  className={classes.select}
-                >
-                  
-                  <MenuItem value={"2019"}>2019</MenuItem>
-                  <MenuItem value={"2020"}>2020</MenuItem>
-                </Select>
-              </FormControl>
-              </GridItem>
+              <GridContainer
+                justify="space-between"
+                direction="row"
+                alignItems="center"
+                className={classes.root}
+              >
+                <GridItem xs={9} md={6} sm={3}>
+                  <h2 className={classes.cardTitleWhite}>
+                    RECIBOS EN CTA. CTE.
+                  </h2>
+                  <p className={classes.cardCategoryWhite}> Sucursal 001 </p>
+                </GridItem>
+                <GridItem xs={3}>
+                  <FormControl className={classes.formControl}>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={mes}
+                      onChange={handleChangeMes}
+                      className={classes.select}
+                    >
+                      <MenuItem value={"ENERO"}>ENERO</MenuItem>
+                      <MenuItem value={"FEBRERO"}>FEBRERO</MenuItem>
+                      <MenuItem value={"MARZO"}>MARZO</MenuItem>
+                      <MenuItem value={"ABRIL"}>ABRIL</MenuItem>
+                      <MenuItem value={"MAYO"}>MAYO</MenuItem>
+                      <MenuItem value={"JUNIO"}>JUNIO</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <FormControl className={classes.formControl}>
+                    <Select
+                      labelId="demo-simple-select-label2"
+                      id="demo-simple-select2"
+                      value={age}
+                      onChange={handleChangeAno}
+                      className={classes.select}
+                    >
+                      <MenuItem value={"2019"}>2019</MenuItem>
+                      <MenuItem value={"2020"}>2020</MenuItem>
+                    </Select>
+                  </FormControl>
+                </GridItem>
               </GridContainer>
             </CardHeader>
             <CardBody>
@@ -155,5 +150,4 @@ const Recibos = () => {
   );
 };
 
-
-export default Recibos
+export default Recibos;
