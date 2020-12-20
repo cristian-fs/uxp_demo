@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 //import '../css/App.css';
 //import fire from "../config/fire";
-import Main from "../componentes/Main";
-import Contenedor from "../componentes/Contenedor";
+import Main from "../views/Main";
+import HomeAdmin from "../views/HomeAdmin";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import crearMainStore from "../REDUX/Store";
 import { Provider } from "react-redux";
@@ -39,7 +39,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route exact path= {["/home", "/pedidos", "/facturas","/ayuda"]} component={Contenedor} />
+              <Route exact path= {["/home", "/pedidos", "/facturas","/ayuda"]} component={HomeAdmin} />
             </Switch>
           </BrowserRouter>
         </Provider>
